@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITCOACH | The Ultimate AI Fitness Companion</title>
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="NqUzMf67fBB6K5Rk1b1f0u5WhCqb7brQgsEo0B6NThY" />
+    
+    <meta name="description" content="Elevate your potential with FITCOACH. The premium smart AI app featuring Video Form Analysis, Dynamic Indian Diets, Epley PR Tracking, and personalized routines. Engineered by Vaishnav.">
+    
+    <!-- Google Fonts: Inter for clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --clr-bg: #050505;
+            --clr-surface: #121212;
+            --clr-primary: #FF3366;
+            --clr-secondary: #ff8c00;
+            --clr-ai: #9013fe;
+            --clr-text: #ffffff;
+            --clr-text-muted: #a0a0a0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--clr-bg);
+            color: var(--clr-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* -----------------------
+           HERO SECTION
+           ----------------------- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 1)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
+        }
+
+        .hero-logo-container {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+            margin-bottom: 30px;
+            box-shadow: 0 0 50px rgba(255, 51, 102, 0.6);
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 30px rgba(255, 51, 102, 0.4); transform: scale(1); }
+            100% { box-shadow: 0 0 70px rgba(255, 51, 102, 0.8); transform: scale(1.05); }
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            background: -webkit-linear-gradient(135deg, #fff, #bbb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--clr-text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: slideUp 1s ease-out 0.2s backwards;
+        }
+
+        .btn-launch {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--clr-primary), var(--clr-secondary));
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 51, 102, 0.4);
+            animation: slideUp 1s ease-out 0.4s backwards;
+        }
+
+        .btn-launch:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 51, 102, 0.6);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* -----------------------
+           FEATURES SECTION
+           ----------------------- */
+        .features {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: var(--clr-primary);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--clr-surface);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--clr-primary);
+            background: linear-gradient(180deg, var(--clr-surface) 0%, rgba(255,51,102,0.05) 100%);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: -webkit-linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-icon.ai {
+            background: -webkit-linear-gradient(135deg, var(--clr-ai), #00f0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-desc {
+            color: var(--clr-text-muted);
+            font-size: 1rem;
+        }
+
+        /* -----------------------
+           FOOTER / SOCIAL PROOF
+           ----------------------- */
+        .footer {
+            background: #000;
+            padding: 60px 20px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .made-by {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.05);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: #E1306C; /* Insta color */
+            transform: scale(1.05);
+        }
+
+        .social-link i {
+            color: #E1306C;
+            font-size: 1.5rem;
+        }
+
+        .copyright {
+            margin-top: 50px;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-logo-container">
+            <i class="fa-solid fa-crown" style="font-size: 3rem; color: #fff;"></i>
+        </div>
+        <h1 class="hero-title">FITCOACH</h1>
+        <p class="hero-subtitle">The most advanced AI fitness application ever built. Track your workouts, scan your meals, and get your lifting form critiqued by an elite biomechanics engine.</p>
+        <a href="index.html" class="btn-launch"><i class="fa-solid fa-bolt mr-2"></i> Launch Application</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Unlock Your <span>True Potential</span></h2>
+        
+        <div class="grid">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <i class="fa-solid fa-video feature-icon ai"></i>
+                <h3 class="feature-title">AI Form Analyzer</h3>
+                <p class="feature-desc">Record your lifting sets. Our Gemini 1.5 Vision integration analyzes your joint angles, counts your reps, and flags critical injury risks.</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <i class="fa-solid fa-camera feature-icon ai"></i>
+                <h3 class="feature-title">Smart Diet Scanner</h3>
+                <p class="feature-desc">Snap a photo of your meal. The AI instantly recognizes the Indian food, calculates the macros, and logs it directly against your daily goal.</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <i class="fa-solid fa-trophy feature-icon"></i>
+                <h3 class="feature-title">Epley PR Tracking</h3>
+                <p class="feature-desc">Log your sets across 200+ exercises. The app automatically calculates your 1-Rep Max and graphs your progressive overload over time.</p>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <i class="fa-solid fa-cloud-arrow-down feature-icon"></i>
+                <h3 class="feature-title">100% Offline PWA</h3>
+                <p class="feature-desc">Install FITCOACH directly to your home screen. Massive datasets are stored locally, meaning you can log workouts even deep inside a bunker gym.</p>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div class="feature-card">
+                <i class="fa-solid fa-users feature-icon"></i>
+                <h3 class="feature-title">Community Feed</h3>
+                <p class="feature-desc">Follow top trending creators and the developer inside the app. Compete on leaderboards and view custom campus challenge workflows.</p>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card">
+                <i class="fa-solid fa-user-tie feature-icon"></i>
+                <h3 class="feature-title">1-on-1 Consultations</h3>
+                <p class="feature-desc">Upgrade to PRO and instantly book a 30-minute private video call layout directly with verified fitness coaches.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="made-by">Engineered with Passion</div>
+        
+        <a href="https://www.instagram.com/vaishnav_fits" target="_blank" class="social-link">
+            <i class="fa-brands fa-instagram"></i> Follow @vaishnav_fits
+        </a>
+
+        <div class="copyright">
+            &copy; 2026 FITCOACH by Vaishnav. All rights reserved.<br>
+            Made for India 🇮🇳 Optimized for Progressive Web App.
+        </div>
+    </footer>
+
+</body>
+</html>

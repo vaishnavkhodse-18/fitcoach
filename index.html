@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FITCOACH - AI Fitness Journey</title>
+
+    <!-- Google Fonts: Inter for clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#121212">
+    <link rel="apple-touch-icon" href="icon.svg">
+</head>
+
+<body class="theme-dark"> <!-- Default to dark mode for premium feel -->
+
+    <!-- Global Navigation Drawer overlay -->
+    <div id="nav-overlay"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.6); z-index: 1040; backdrop-filter: blur(2px);">
+    </div>
+
+    <!-- Global Navigation Drawer -->
+    <aside id="nav-drawer"
+        style="transform: translateX(-100%); transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: fixed; top: 0; left: 0; width: 280px; height: 100vh; background: var(--clr-bg-surface-elevated); z-index: 1050; overflow-y: auto; box-shadow: var(--shadow-xl); display: flex; flex-direction: column;">
+
+        <div class="drawer-header p-4"
+            style="background: linear-gradient(135deg, rgba(255,51,102,0.1), rgba(0,240,255,0.1)); border-bottom: 1px solid var(--clr-border);">
+            <div class="flex justify-between items-start mb-3">
+                <div class="flex items-center gap-3">
+                    <img src="https://ui-avatars.com/api/?name=User&background=random&color=fff" id="drawer-avatar"
+                        alt="Avatar"
+                        style="width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--clr-primary);">
+                    <div>
+                        <h3 class="mb-0 fw-bold" id="drawer-name" style="font-size: 1.1rem;">FITCOACH</h3>
+                        <div class="badge badge-accent mt-1" style="font-size: 0.7rem;"><i
+                                class="fa-solid fa-crown"></i> Free Plan</div>
+                    </div>
+                </div>
+                <button class="icon-btn" id="close-drawer" style="color: var(--clr-text-muted);"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </div>
+            <button class="btn btn-primary w-full text-sm py-2" id="btn-upgrade-pro"><i class="fa-solid fa-bolt"></i>
+                Upgrade to Pro</button>
+        </div>
+
+        <div class="drawer-content p-3" style="flex: 1;">
+
+            <div class="menu-section mb-4">
+                <div class="text-xs text-muted text-uppercase mb-2 fw-bold px-2">Analytics & Performance</div>
+                <a href="#history" class="drawer-item" data-page="history"><i
+                        class="fa-solid fa-chart-line text-primary"></i> <span>Volume Analytics</span></a>
+                <a href="#pr-tracking" class="drawer-item" data-page="pr"><i class="fa-solid fa-trophy text-accent"></i>
+                    <span>PR Tracking</span><span class="badge badge-secondary ml-auto"
+                        style="font-size:0.6rem;">PRO</span></a>
+            </div>
+
+            <div class="menu-section mb-4">
+                <div class="text-xs text-muted text-uppercase mb-2 fw-bold px-2">Advanced Modules</div>
+                <a href="#form-analysis" class="drawer-item" data-page="form-analysis"><i
+                        class="fa-solid fa-video text-ai"></i> <span>AI Form Analysis</span><span
+                        class="badge badge-secondary ml-auto" style="font-size:0.6rem;">PRO</span></a>
+                <a href="#coach-market" class="drawer-item" data-page="coach-market"><i
+                        class="fa-solid fa-user-tie text-success"></i> <span>Coach Marketplace</span></a>
+                <a href="#community" class="drawer-item" data-page="community"><i
+                        class="fa-solid fa-users text-warning"></i> <span>Community & Challenges</span></a>
+            </div>
+
+            <div class="menu-section mb-4">
+                <div class="text-xs text-muted text-uppercase mb-2 fw-bold px-2">Settings & Offline</div>
+                <a href="#" class="drawer-item" id="btn-sync-offline"><i class="fa-solid fa-cloud-arrow-down"></i>
+                    <span>Offline Sync</span><i class="fa-solid fa-check text-success ml-auto"
+                        style="font-size:0.8rem;"></i></a>
+                <a href="#" class="drawer-item" id="btn-drawer-change-plan"><i class="fa-solid fa-sliders"></i>
+                    <span>Change Goal/Style</span></a>
+            </div>
+
+        </div>
+
+        <div class="drawer-footer p-3 border-t" style="border-top: 1px solid var(--clr-border);">
+            <a href="#" class="drawer-item text-error" id="btn-drawer-logout" style="color: #ff4444 !important;"><i
+                    class="fa-solid fa-right-from-bracket"></i> <span>Logout</span></a>
+            <button id="btn-install-pwa" class="btn btn-secondary w-full text-sm py-2 mt-3"
+                style="display: block; background: rgba(0, 240, 255, 0.1); border-color: #00f0ff; color: #00f0ff;"><i
+                    class="fa-solid fa-download"></i> Install App</button>
+            <div class="text-center mt-3 text-xs text-muted">
+                Made for India 🇮🇳<br>v2.0 Premium
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- App Container (Mobile viewport constraints) -->
+    <div id="app-container">
+
+        <!-- Header (Dynamic based on page) -->
+        <header id="app-header">
+            <div class="header-content flex items-center w-full">
+                <!-- Hamburger Menu Toggle -->
+                <button class="icon-btn mr-3" id="menu-toggle" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars" style="font-size: 1.2rem;"></i>
+                </button>
+
+                <h1 id="page-title" style="flex: 1; margin: 0;">FITCOACH</h1>
+
+                <div class="header-actions flex gap-2">
+                    <button class="btn btn-primary btn-sm" id="pwa-install-btn"
+                        style="display: none; font-size: 0.75rem; padding: 4px 8px;">
+                        <i class="fa-solid fa-download"></i> Install
+                    </button>
+                    <button class="icon-btn" id="theme-toggle" aria-label="Toggle Theme">
+                        <i class="fa-regular fa-sun"></i>
+                    </button>
+                    <button class="icon-btn" id="profile-btn" aria-label="Profile">
+                        <img src="https://ui-avatars.com/api/?name=User&background=random&color=fff" alt="User Profile"
+                            class="avatar-small">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profile Dropdown Menu -->
+            <div id="profile-menu"
+                style="display: none; position: absolute; top: 60px; right: 15px; width: 180px; background: var(--clr-glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--clr-glass-border); border-radius: var(--border-radius-md); padding: 10px; z-index: 1000; box-shadow: var(--shadow-lg);">
+                <button class="btn btn-secondary w-full text-left mb-2" id="btn-change-plan"
+                    style="justify-content: flex-start; gap: 10px;">
+                    <i class="fa-solid fa-sliders text-primary"></i> Change Plan
+                </button>
+                <div style="height: 1px; background: var(--clr-border); margin: 5px 0;"></div>
+                <button class="btn btn-secondary w-full text-left" id="btn-logout"
+                    style="justify-content: flex-start; gap: 10px; color: #ff4444;">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                </button>
+                <div style="height: 1px; background: var(--clr-border); margin: 8px 0;"></div>
+                <div style="text-align: center; font-size: 0.75rem; color: var(--clr-text-muted);">
+                    App by <a href="https://instagram.com/vaishnav_fits" target="_blank"
+                        style="color: var(--clr-primary); text-decoration: none; font-weight: bold;">vaishnav_fits</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area where pages are injected -->
+        <main id="main-content">
+            <!-- Content will be dynamically loaded here by router.js -->
+        </main>
+
+        <!-- Bottom Navigation Bar -->
+        <nav id="bottom-nav">
+            <a href="#dashboard" class="nav-item active" data-page="dashboard">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="#workout" class="nav-item" data-page="workout">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Workout</span>
+            </a>
+            <a href="#vision" class="nav-item ai-fab-container" data-page="vision">
+                <div class="ai-fab">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+                <span>Vision</span>
+            </a>
+            <a href="#diet" class="nav-item" data-page="diet">
+                <i class="fa-solid fa-utensils"></i>
+                <span>Diet</span>
+            </a>
+            <a href="#ai-coach" class="nav-item" data-page="ai-coach">
+                <i class="fa-solid fa-robot"></i>
+                <span>Chat</span>
+            </a>
+        </nav>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/data-structures.js"></script>
+    <script src="js/workout-logic.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/ai-engine.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(reg => {
+                    console.log('ServiceWorker registration successful');
+                }).catch(err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
